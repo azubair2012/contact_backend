@@ -48,7 +48,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error("All fields are mendatory!");
   }
   const user = await User.findOne({ email });
-
+  //this is the test
   if (user && (await bcrypt.compare(password, user.password))) {
     //Web Token Provided for 15 mins
     const accessToken = jwt.sign(
