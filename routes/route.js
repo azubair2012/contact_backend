@@ -7,7 +7,9 @@ const {
   deleteContacts,
 } = require("../controllers/controller");
 const router = express.Router();
+const tokenValidation = require("../middlewares/tokenValidation");
 
+router.use(tokenValidation);
 router.route("/").get(getContacts).post(createContacts);
 
 router
